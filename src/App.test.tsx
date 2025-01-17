@@ -42,3 +42,15 @@ test("performs subtraction correctly", () => {
   const result = screen.getByTestId("result");
   expect(result).toHaveTextContent("2");
 });
+
+test("performs multiplication correctly", () => {
+  render(<Calculator />);
+
+  fireEvent.click(screen.getByTestId("button-2"));
+  fireEvent.click(screen.getByTestId("button-multiply"));
+  fireEvent.click(screen.getByTestId("button-3"));
+  fireEvent.click(screen.getByTestId("button-equal"));
+
+  const result = screen.getByTestId("result");
+  expect(result).toHaveTextContent("6");
+});
