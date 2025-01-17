@@ -8,3 +8,15 @@ test("renders calculator component correctly", () => {
   const button1 = screen.getByTestId("button-1");
   expect(button1).toBeInTheDocument();
 });
+
+test("updates input on number button click", () => {
+  render(<Calculator />);
+
+  fireEvent.click(screen.getByTestId("button-1"));
+  const result = screen.getByTestId("result");
+
+  expect(result).toHaveTextContent("0");
+
+  fireEvent.click(screen.getByTestId("button-2"));
+  expect(result).toHaveTextContent("1");
+});
