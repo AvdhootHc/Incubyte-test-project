@@ -32,3 +32,13 @@ test("performs addition correctly", () => {
 
   expect(result).toHaveTextContent("5");
 });
+
+test("performs subtraction correctly", () => {
+  render(<Calculator />);
+  fireEvent.click(screen.getByTestId("button-5"));
+  fireEvent.click(screen.getByTestId("button-minus"));
+  fireEvent.click(screen.getByTestId("button-3"));
+  fireEvent.click(screen.getByTestId("button-equal"));
+  const result = screen.getByTestId("result");
+  expect(result).toHaveTextContent("2");
+});
