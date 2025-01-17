@@ -11,12 +11,11 @@ test("renders calculator component correctly", () => {
 
 test("updates input on number button click", () => {
   render(<Calculator />);
-
   fireEvent.click(screen.getByTestId("button-1"));
   const result = screen.getByTestId("result");
 
-  expect(result).toHaveTextContent("0");
+  expect(result).toHaveTextContent("1");
 
   fireEvent.click(screen.getByTestId("button-2"));
-  expect(result).toHaveTextContent("1");
+  expect(result).toHaveTextContent("12");
 });

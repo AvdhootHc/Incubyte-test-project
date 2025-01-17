@@ -5,9 +5,9 @@ const Calculator: React.FC = () => {
 
   const handleClick = (value: string) => {
     if (input === "0") {
-      setInput(value);
+      setInput(value); // set value if the input is zero
     } else {
-      setInput(input + value);
+      setInput(input + value); // append value to input
     }
   };
 
