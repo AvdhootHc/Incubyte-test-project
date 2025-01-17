@@ -54,3 +54,19 @@ test("performs multiplication correctly", () => {
   const result = screen.getByTestId("result");
   expect(result).toHaveTextContent("6");
 });
+
+test("clears the calculator display when C button is clicked", () => {
+  render(<Calculator />);
+
+  fireEvent.click(screen.getByTestId("button-2"));
+  fireEvent.click(screen.getByTestId("button-plus"));
+  fireEvent.click(screen.getByTestId("button-3"));
+
+  fireEvent.click(screen.getByTestId("button-clear"));
+
+  const result = screen.getByTestId("result");
+  expect(result).toHaveTextContent("0");
+
+  fireEvent.click(screen.getByTestId("button-1"));
+  expect(result).toHaveTextContent("1");
+});
